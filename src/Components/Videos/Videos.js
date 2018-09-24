@@ -1,9 +1,10 @@
 import React,{Component} from 'react'
 import axios from 'axios';
 import './videos.css'
-
 import Navabr from '../Navbar/Navbar'
 
+
+import API_KEY from './key';
 
 class Videos extends Component{
     constructor(props) {
@@ -16,7 +17,7 @@ class Videos extends Component{
     }
 
     componentDidMount(){
-        let key = 'AIzaSyBaQOa7ZCWuiPu9E5_mwn9BOSOHtbpsT3Y'
+        let key = API_KEY
         let playlistId = this.state.playlistId||'PLLdPJGHquctFFaYNmcSIZVjpHxjO9dZTS'
         let URL = 'https://www.googleapis.com/youtube/v3/playlistItems'
 
