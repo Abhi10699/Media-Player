@@ -1,0 +1,13 @@
+.nav{
+    position:fixed;
+    background-color:#0c3955;
+    color: white;
+    height: 100%;
+    width: 70px;
+    
+}
+
+.nav li {
+    font-size: 40px;
+    margin-left: 13px;
+}
