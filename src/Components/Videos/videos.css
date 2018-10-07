@@ -1,41 +1,7 @@
-.iframe_container{
-    display: grid;
-    grid-template-columns: 70px 670px 10px;
-}
-
-.list{
-    height: 100vh;
-    overflow-y: scroll;
-}
 .iframe{
     /* background-color: black; */
     width: 100ch;
-    
+    height: 100%;
+    overflow: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius:10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius:10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-
-.heading{
-    color: #f1f1f1;
-    /* position:fixed; */
-}
