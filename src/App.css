@@ -1,7 +1,31 @@
-/* .main{
-    display: grid;
-    grid-template-columns: 70px auto;
-} */
-body{
-    background-color:#cfdfdd;
+.mainContainer{
+    display:grid;
+    grid-template-columns: 70px 670px;
+  }
+  
+::-webkit-scrollbar {
+    width: 5px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius:10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius:10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.heading{
+    color: #f1f1f1;
+    /* position:fixed; */
 }
