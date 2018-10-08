@@ -1,8 +1,4 @@
-.mainContainer{
-    display:grid;
-    grid-template-columns: 70px 670px;
-  }
-  
+
 ::-webkit-scrollbar {
     width: 5px;
 
