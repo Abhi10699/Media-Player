@@ -31,6 +31,8 @@ You should have electron installed globally
   </li>
 </ol>
 
+<h3>Note: Use different terminal instances for step <b>2</b> & <b>3</b></h3>
+
 # Dependencies
 <ul>
   <li><a href="https://github.com/electron/electron">Electron</a></li>
