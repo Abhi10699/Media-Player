@@ -32,7 +32,6 @@ export default class Parent extends Component{
             params:config
         })
         .then(d=>{
-            console.log(d)
             d.data.items.forEach(i=>{
                 this.videos.push(i);
             })
