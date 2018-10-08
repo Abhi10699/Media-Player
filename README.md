@@ -38,5 +38,6 @@ You should have electron installed globally
   <li><a href="https://github.com/electron/electron">Electron</a></li>
   <li><a href="https://github.com/facebook/react">React Js</a></li>
   <li><a href="https://github.com/axios/axios">Axios</a></li>
+  <li><a href="https://github.com/coderaiser/smalltalk">SmallTalk</a></li>
 </ul>
 
