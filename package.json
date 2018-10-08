@@ -2,7 +2,7 @@
   "name": "youtube_playlist",
   "version": "0.1.0",
   "private": true,
-  "main": "src/main.js",
+  "main": "./main.js",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.5.2",
