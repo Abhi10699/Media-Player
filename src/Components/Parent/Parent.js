@@ -8,7 +8,7 @@ import './Parent.css'
 export default class Parent extends Component{
     constructor(){
         super();
-        this.videos = []
+				this.videos = []
         this.state =  {
             playlistUrl:"",
             videos:[],
@@ -23,11 +23,10 @@ export default class Parent extends Component{
         let config = {
             maxResults:50,
             part:'snippet,contentDetails',
-            playlistId:this.state.playlistUrl || "PLhgJEuxCsQtAOxxusAe1L9nz7xFSwVnTM", 
+            playlistId:this.state.playlistUrl || "PLH-MxCdxgrGp8jGqjx_pICATXecnVNGhI", 
             key:key,
             pageToken:token
         }
-
         axios.get(URL,{
             params:config
         })
@@ -41,27 +40,21 @@ export default class Parent extends Component{
                 this.setState({videos:this.videos,id:this.videos[0].snippet.resourceId.videoId})    
             }
         })
-
         .catch(err=>{
             console.log(err)
         })
     }
-
     componentDidMount(){
         this.getPlaylist();
     }
-
     updatePlaylistUrl = (url)=>{
         this.videos = [];
         this.setState({playlistUrl:url})
         this.getPlaylist();
     }
-
-
     updateId = (id)=>{
         this.setState({id:id})
     }
-
     render(){
         return(
         <div className="mainContainer">
