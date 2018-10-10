@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './list.css';
-
 // Video Component
 import Videos from '../Videos/Videos';
 export default class List extends Component{
@@ -17,6 +16,7 @@ export default class List extends Component{
     }
       render(){
         return(
+          <Fragment>
             <div className="list_container">
                 <div className="list_child list">
                     <ul class="list-group">
@@ -33,7 +33,7 @@ export default class List extends Component{
                 </div>
                 <Videos id={this.props.firstSong}/>
             </div>
-
+        </Fragment>
         )
     }
 }
