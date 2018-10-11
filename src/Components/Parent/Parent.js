@@ -57,6 +57,10 @@ export default class Parent extends Component{
         this.setState({index:idx})
         console.log("Index Changed: "+idx);
     }
+
+    autoPlayIndex = ()=>{
+        this.setState({index:parseInt(this.state.index) + 1});
+    }
     render(){
         return(
         <div className="mainContainer">
@@ -66,6 +70,7 @@ export default class Parent extends Component{
             SongsIds = {this.state.id} 
             updateIndex = {this.updateIndex}
             curIndex = {this.state.index}
+            autoPlay = {this.autoPlayIndex.bind(this)}
             />
         </div>
         )
