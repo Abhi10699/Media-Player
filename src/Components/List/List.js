@@ -5,14 +5,14 @@ import Videos from '../Videos/Videos';
 export default class List extends Component{
     
     constructor(){
-        super();
-        this.state ={
-            id:""
-        }
+      super();
+      this.state ={
+          id:""
+      }
     }
     updateId(e){
-        this.props.updateId(e.target.attributes.getNamedItem('vidid').value);
-        e.preventDefaults;
+      this.props.updateIndex(e.target.attributes.getNamedItem('vidIndex').value);
+      e.preventDefaults;
     }
       render(){
         return(
@@ -24,14 +24,19 @@ export default class List extends Component{
                             this.props.videos.map((item,index)=>{
                                 return(
                                     <li className="list-group-item">
-                                    <a href="#" vidid={item.snippet.resourceId.videoId}
-                                     onClick={this.updateId.bind(this)}>{(index + 1)+")" + " " + item.snippet.title}</a></li>
+                                        <a href="#" 
+                                        vidid={item.snippet.resourceId.videoId}
+                                        vidIndex={index}
+                                        onClick={this.updateId.bind(this)}
+                                        >{(index + 1)+")" + " " + item.snippet.title}
+                                        </a>
+                                    </li>
                                 )
                             })
                         }
                     </ul>
                 </div>
-                <Videos id={this.props.firstSong}/>
+                <Videos id={this.props.SongsIds} index={this.props.curIndex} autoplayFunc={this.props.autoPlay}/>
             </div>
         </Fragment>
         )

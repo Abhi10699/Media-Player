@@ -12,15 +12,24 @@ class Videos extends Component{
           }
         }
     }
-
-    _onEnd(e){
-      console.log("Video Ended.");
+    
+    PlayNext(){
+      if(this.state > this.props.id.length){
+        alert("Playlist Over");
+        return;
+      }else{
+        this.props.autoplayFunc()
+      }
     }
-
     render(){
         return(    
           <div class="iframe_container">  
-            <YouTube videoId={this.props.id} className="iframe" opts={this.opts} onEnd={this._onEnd}></YouTube>
+            <YouTube 
+            videoId={this.props.id[this.props.index]} 
+            className="iframe" 
+            opts={this.opts}
+            onEnd={this.PlayNext.bind(this)}>
+            </YouTube>
           </div>    
         )
     }
