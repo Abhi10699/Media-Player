@@ -8,18 +8,18 @@ import './Parent.css'
 export default class Parent extends Component{
     constructor(){
         super();
-				this.videos = []
+        this.videos = []
+        this.ids = []
         this.state =  {
             playlistUrl:"",
             videos:[],
-            id:""
+            id:[],
+            index:0
         }
     }
     getPlaylist(token){
         let key = API_KEY
-        // let playlistId = this.state.playlistId;
         let URL = 'https://www.googleapis.com/youtube/v3/playlistItems'
-
         let config = {
             maxResults:50,
             part:'snippet,contentDetails',
@@ -33,11 +33,12 @@ export default class Parent extends Component{
         .then(d=>{
             d.data.items.forEach(i=>{
                 this.videos.push(i);
+                this.ids.push(i.snippet.resourceId.videoId)
             })
             if("nextPageToken" in d.data){
                 this.getPlaylist(d.data.nextPageToken);
             }else{
-                this.setState({videos:this.videos,id:this.videos[0].snippet.resourceId.videoId})    
+                this.setState({videos:this.videos,id:this.ids})    
             }
         })
         .catch(err=>{
@@ -52,14 +53,20 @@ export default class Parent extends Component{
         this.setState({playlistUrl:url})
         this.getPlaylist();
     }
-    updateId = (id)=>{
-        this.setState({id:id})
+    updateIndex = (idx)=>{
+        this.setState({index:idx})
+        console.log("Index Changed: "+idx);
     }
     render(){
         return(
         <div className="mainContainer">
             <Navbar setPlaylist = {this.updatePlaylistUrl}/>
-            <List videos = {this.state.videos} firstSong = {this.state.id} updateId = {this.updateId}/>
+            <List 
+            videos = {this.state.videos} 
+            SongsIds = {this.state.id} 
+            updateIndex = {this.updateIndex}
+            curIndex = {this.state.index}
+            />
         </div>
         )
     }
