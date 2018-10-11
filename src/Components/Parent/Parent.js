@@ -50,7 +50,8 @@ export default class Parent extends Component{
     }
     updatePlaylistUrl = (url)=>{
         this.videos = [];
-        this.setState({playlistUrl:url})
+        this.ids = [];
+        this.setState({playlistUrl:url,index:0})
         this.getPlaylist();
     }
     updateIndex = (idx)=>{
