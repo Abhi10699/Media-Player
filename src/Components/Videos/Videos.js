@@ -14,7 +14,7 @@ class Videos extends Component{
     }
     
     PlayNext(){
-      if(this.state > this.props.id.length){
+      if(this.props.index > this.props.id.length){
         alert("Playlist Over");
         return;
       }else{
