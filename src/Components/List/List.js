@@ -26,7 +26,6 @@ export default class List extends Component{
                                     <li className="list-group-item">
                                         <a href="#" 
                                         vidid={item.snippet.resourceId.videoId}
-                                        vidIndex = {index}
                                         onClick={this.updateId.bind(this)}
                                         >{(index + 1)+")" + " " + item.snippet.title}
                                         </a>
@@ -36,7 +35,7 @@ export default class List extends Component{
                         }
                     </ul>
                 </div>
-                <Videos id={this.props.SongsIds} index = {this.props.curIndex}/>
+                <Videos id={this.props.SongsIds} index={this.props.curIndex} autoplayFunc={this.props.autoPlay}/>
             </div>
         </Fragment>
         )
