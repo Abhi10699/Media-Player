@@ -5,9 +5,6 @@ class Videos extends Component{
      
     constructor(props) {
         super(props);
-        this.state = {
-          counter:this.props.index
-        }
         this.opts = {
           playerVars:{
             autoplay:1,
@@ -15,21 +12,22 @@ class Videos extends Component{
           }
         }
     }
+    
     PlayNext(){
       if(this.state > this.props.id.length){
         alert("Playlist Over");
         return;
       }else{
-        this.setState({counter:this.state.counter + 1})
+        this.props.autoplayFunc()
       }
     }
     render(){
         return(    
           <div class="iframe_container">  
             <YouTube 
-            videoId={this.props.id[this.state.counter]} 
+            videoId={this.props.id[this.props.index]} 
             className="iframe" 
-            opts={this.opts} 
+            opts={this.opts}
             onEnd={this.PlayNext.bind(this)}>
             </YouTube>
           </div>    
