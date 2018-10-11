@@ -26,6 +26,7 @@ export default class List extends Component{
                                     <li className="list-group-item">
                                         <a href="#" 
                                         vidid={item.snippet.resourceId.videoId}
+                                        vidIndex={index}
                                         onClick={this.updateId.bind(this)}
                                         >{(index + 1)+")" + " " + item.snippet.title}
                                         </a>
