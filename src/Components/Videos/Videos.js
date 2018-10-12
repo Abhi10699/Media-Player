@@ -25,7 +25,7 @@ class Videos extends Component{
         return(    
           <div class="iframe_container">  
             <YouTube 
-            videoId={this.props.id[this.props.index]} 
+            videoId={this.props.id[this.props.index] || this.props.lastId} 
             className="iframe" 
             opts={this.opts}
             onEnd={this.PlayNext.bind(this)}>
