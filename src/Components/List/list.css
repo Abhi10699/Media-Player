@@ -1,7 +1,3 @@
-.list_container{
-    display: grid;
-    grid-template-columns: 550px auto;
-}
 .list{
     height: 100vh;
     overflow-y: scroll;
