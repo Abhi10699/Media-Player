@@ -1,7 +1,6 @@
 .iframe{
-    /* background-color: black; */
+    background-color: black;
     width: 100ch;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
+    overflow-y: hidden;
 }
-
