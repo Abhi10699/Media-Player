@@ -1,44 +1,41 @@
 import React, {Component, Fragment} from 'react';
 import './list.css';
-// Video Component
-import Videos from '../Videos/Videos';
-export default class List extends Component{
-    
+export default class List extends Component{  
     constructor(){
-      super();
-      this.state ={
-          id:""
-      }
+    super();
+    this.state ={
+        id:""
     }
-    updateId(e){
-      this.props.updateIndex(e.target.attributes.getNamedItem('vidIndex').value);
-      e.preventDefaults;
-    }
-      render(){
-        return(
-          <Fragment>
-            <div className="list_container">
-                <div className="list_child list">
-                    <ul class="list-group">
-                        {
-                            this.props.videos.map((item,index)=>{
-                                return(
-                                    <li className="list-group-item">
-                                        <a href="#" 
-                                        vidid={item.snippet.resourceId.videoId}
-                                        vidIndex={index}
-                                        onClick={this.updateId.bind(this)}
-                                        >{(index + 1)+")" + " " + item.snippet.title}
-                                        </a>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-                <Videos id={this.props.SongsIds} index={this.props.curIndex} autoplayFunc={this.props.autoPlay}/>
+  }
+
+  updateId(e){
+    this.props.updateIndex(e.target.attributes.getNamedItem('vidIndex').value);
+    e.preventDefaults;
+  }
+  render(){
+    return(
+      <Fragment>
+        <div className="list_container">
+            <div className="list_child list">
+                <ul class="list-group">
+                    {
+                        this.props.videos.map((item,index)=>{
+                            return(
+                                <li className="list-group-item">
+                                    <a href="#" 
+                                    vidid={item.snippet.resourceId.videoId}
+                                    vidIndex={index}
+                                    onClick={this.updateId.bind(this)}
+                                    >{(index + 1)+")" + " " + item.snippet.title}
+                                    </a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
             </div>
-        </Fragment>
-        )
-    }
+        </div>
+    </Fragment>
+    )
+}
 }
