@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import List from '../List/List';
 import Navbar from '../Navbar/Navbar';
+import Videos from '../Videos/Videos'
 import axios from 'axios';
 import API_KEY from '../key';
 import './Parent.css'
@@ -14,7 +15,9 @@ export default class Parent extends Component{
             playlistUrl: "",
             videos:[],
             id:[],
-            index:parseInt(localStorage.getItem('LastSong')) || 0
+            index:parseInt(localStorage.getItem('LastSong')) || 0,
+            isLoading:true,
+            lastSongId:localStorage.getItem("LastSongId") || ""
         }
     }
     getPlaylist(token){
@@ -38,7 +41,8 @@ export default class Parent extends Component{
             if("nextPageToken" in d.data){
                 this.getPlaylist(d.data.nextPageToken);
             }else{
-                this.setState({videos:this.videos,id:this.ids})    
+                this.setState({videos:this.videos,id:this.ids})  
+                this.setState({isLoading:false})
             }
         })
         .catch(err=>{
@@ -47,6 +51,7 @@ export default class Parent extends Component{
     }
     componentDidMount(){
         this.getPlaylist();
+        
     }
     updatePlaylistUrl = (url)=>{
         this.videos = [];
@@ -59,23 +64,43 @@ export default class Parent extends Component{
     updateIndex = (idx)=>{
         this.setState({index:idx})
         localStorage.setItem("LastSong",idx)
-        console.log("Index Changed: "+idx);
+        localStorage.setItem("LastSongId",this.ids[idx])
+        console.log("Index Changed: "+this.ids[idx]);
     }
 
     autoPlayIndex = ()=>{
         this.setState({index:parseInt(this.state.index) + 1});
+        localStorage.setItem("LastSongId",this.ids[this.state.index])
     }
+
+    showLoading(){
+        if(this.state.isLoading){
+            return(
+            <div className="loading">
+                <div class="lds-ripple"><div></div><div></div></div>
+                <br/>
+                <h3>Loading Playlist.</h3>
+            </div>
+            )
+        }
+        else{
+            return(
+                <div>    
+                    <List videos = {this.state.videos} updateIndex = {this.updateIndex.bind(this)}/>
+                </div>
+            )
+        }
+    }
+
     render(){
         return(
         <div className="mainContainer">
             <Navbar setPlaylist = {this.updatePlaylistUrl}/>
-            <List 
-            videos = {this.state.videos} 
-            SongsIds = {this.state.id} 
-            updateIndex = {this.updateIndex}
-            curIndex = {this.state.index}
-            autoPlay = {this.autoPlayIndex.bind(this)}
-            />
+                {
+                    this.showLoading()                   
+                }
+            <Videos id={this.state.id} index={this.state.index} autoplayFunc={this.autoPlayIndex.bind(this)} className="videos" lastId={this.state.lastSongId}/>
+
         </div>
         )
     }
