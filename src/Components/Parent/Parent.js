@@ -11,10 +11,10 @@ export default class Parent extends Component{
         this.videos = []
         this.ids = []
         this.state =  {
-            playlistUrl:"",
+            playlistUrl: "",
             videos:[],
             id:[],
-            index:0
+            index:parseInt(localStorage.getItem('LastSong')) || 0
         }
     }
     getPlaylist(token){
@@ -23,7 +23,7 @@ export default class Parent extends Component{
         let config = {
             maxResults:50,
             part:'snippet,contentDetails',
-            playlistId:this.state.playlistUrl || "PLH-MxCdxgrGp8jGqjx_pICATXecnVNGhI", 
+            playlistId:localStorage.getItem("LastPlaylist")  || "PLH-MxCdxgrGp8jGqjx_pICATXecnVNGhI", 
             key:key,
             pageToken:token
         }
@@ -52,10 +52,13 @@ export default class Parent extends Component{
         this.videos = [];
         this.ids = [];
         this.setState({playlistUrl:url,index:0})
+        localStorage.setItem("LastSong",0)
+        localStorage.setItem("LastPlaylist",url)
         this.getPlaylist();
     }
     updateIndex = (idx)=>{
         this.setState({index:idx})
+        localStorage.setItem("LastSong",idx)
         console.log("Index Changed: "+idx);
     }
 
