@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
-import List from '../List/List';
-import Navbar from '../Navbar/Navbar';
-import Videos from '../Videos/Videos'
+import {List,QuickAccess,Videos,Navbar} from '../Components'
 import axios from 'axios';
 import API_KEY from '../key';
 import './Parent.css'
+
+// React Router
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class Parent extends Component{
     constructor(){
@@ -86,7 +87,8 @@ export default class Parent extends Component{
         else{
             return(
                 <div>    
-                    <List videos = {this.state.videos} updateIndex = {this.updateIndex.bind(this)}/>
+                    <Route exact path="/" render={()=><List videos = {this.state.videos} updateIndex = {this.updateIndex.bind(this)}/>}/>
+                    <Route path="/quicAccess" component={QuickAccess}/>
                 </div>
             )
         }
@@ -100,7 +102,7 @@ export default class Parent extends Component{
                     this.showLoading()                   
                 }
             <Videos id={this.state.id} index={this.state.index} autoplayFunc={this.autoPlayIndex.bind(this)} className="videos" lastId={this.state.lastSongId}/>
-
+                
         </div>
         )
     }
