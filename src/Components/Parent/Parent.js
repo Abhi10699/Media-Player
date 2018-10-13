@@ -88,7 +88,7 @@ export default class Parent extends Component{
             return(
                 <div>    
                     <Route exact path="/" render={()=><List videos = {this.state.videos} updateIndex = {this.updateIndex.bind(this)}/>}/>
-                    <Route path="/quicAccess" component={QuickAccess}/>
+                    <Route path="/quicAccess" render={()=><QuickAccess loadPlaylist={this.updatePlaylistUrl.bind(this)}/>}/>
                 </div>
             )
         }
