@@ -3,8 +3,8 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1495, height: 720,resizable:false})
-  // mainWindow.setMenu(null)
+  mainWindow = new BrowserWindow({width: 1480, height: 720,resizable:false,frame:false})
+  mainWindow.setMenu(null)
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:3000')
 
