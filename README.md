@@ -2,7 +2,7 @@
 Media-Player is an app that you can use to watch <b>Youtube Playlists</b> on your <b>Desktop</b>.
 
 # Screenshot
-<img src="https://raw.githubusercontent.com/Abhi10699/Media-Player/master/Screenshots/v2.png" />
+<img src="https://raw.githubusercontent.com/Abhi10699/Media-Player/master/Screenshots/v3.PNG" />
 
 # Motivation
 I like watching youtube and listening music on youtube but chrome occupies a lot of memory..So i'm building this desktop app that you can use to watch playlists of youtube.
@@ -32,12 +32,4 @@ You should have electron installed globally
 </ol>
 
 <h3>Note: Use different terminal instances for step <b>2</b> & <b>3</b></h3>
-
-# Dependencies
-<ul>
-  <li><a href="https://github.com/electron/electron">Electron</a></li>
-  <li><a href="https://github.com/facebook/react">React Js</a></li>
-  <li><a href="https://github.com/axios/axios">Axios</a></li>
-  <li><a href="https://github.com/coderaiser/smalltalk">SmallTalk</a></li>
-</ul>
 
