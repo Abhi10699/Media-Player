@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import PlaylistForm from './playlistForm'
-
 class Modal extends Component {
  
   constructor(){
