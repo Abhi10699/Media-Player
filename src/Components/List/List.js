@@ -15,6 +15,9 @@ export default class List extends Component{
   render(){
     return(
       <Fragment>
+          <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Songs</a>
+        </nav>
         <div className="list_container">
             <div className="list_child list">
                 <ul class="list-group">
