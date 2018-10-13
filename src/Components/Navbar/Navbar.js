@@ -13,10 +13,7 @@ class Navbar extends Component{
     componentDidMount(){
         $('[data-toggle="tooltip"]').tooltip()
     }
-
-    parseLink = (url) => {
-        return url.split("&")[1];
-    }
+    
     updatePlaylist = ()=>{
         smalltalk.prompt("Youtube Playlist URL","Paste URL Here: ")
         .then(value=>{
