@@ -25,7 +25,8 @@ export default class List extends Component{
                         this.props.videos.map((item,index)=>{
                             return(
                                 <li className="list-group-item">
-                                    <a href="#" 
+                                    <a
+                                    className="link"
                                     vidid={item.snippet.resourceId.videoId}
                                     vidIndex={index}
                                     onClick={this.updateId.bind(this)}
