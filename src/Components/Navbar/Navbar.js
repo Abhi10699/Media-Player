@@ -28,30 +28,43 @@ class Navbar extends Component{
             <div>
             <div className="nav mainNav">
                <li>
-                <Link to="/">
-                    <button class="btn btn-primary"
+                <Link to="/list">
+                    <button className="btn btn-primary"
                      type="button"
                      data-toggle="tooltip"
                      data-placement="right" 
-                     title="Home"><span class="fa fa-home"></span></button>
+                     title="Home"><span className="fa fa-home"></span></button>
                 </Link>
             
                 <button 
-                class="btn btn-success" 
+                className="btn btn-primary" 
                 type=" button"
                 data-toggle="tooltip"
                 data-placement="right"
                 title="Load Playlist"
-                onClick={this.updatePlaylist}><span class="fa fa-plus"></span></button>
+                onClick={this.updatePlaylist}><span className="fa fa-plus"></span></button>
                 
                 <Link to="/quicAccess">
                     <button 
-                    class="btn btn-default" 
+                    className="btn btn-primary" 
                     type="button"
                     data-toggle="tooltip"
                     data-placement="right"
                     title="Your Playlists"
-                    ><span class="fa fa-list-ul"></span></button>
+                    ><span className="fa fa-list-ul"></span></button>
+                </Link>
+
+                <Link to="/settings">
+                    <button 
+                    className="btn btn-primary"
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title="Settings"
+                   >
+                    <span className="fa fa-cog"></span>
+                    </button>
+                
                 </Link>
                </li>
              
