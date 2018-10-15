@@ -27,6 +27,18 @@ export default class QuickAccess extends Component{
     this.props.loadPlaylist(e.target.attributes.getNamedItem('playlistId').value);
   }
 
+  deletePlaylist = (e)=>{
+    let id = e.target.attributes.getNamedItem("playlistId").value;
+    let playlists = JSON.parse(localStorage.getItem("PlayListData"))
+    playlists.forEach((item,index) =>{
+      if (item.playlistId == id) {
+        playlists.splice(index,1)
+        localStorage.setItem("PlayListData", JSON.stringify(playlists))
+        this.checkStorage();
+      }
+    })
+  }
+
   checkRender(){
     if(this.state.isEmpty){
       return(
@@ -40,6 +52,12 @@ export default class QuickAccess extends Component{
           return(
             <li className="list-group-item mt-2">
             {data.alias} 
+            <button
+            className="btn btn-danger btn-sm mx-2"
+            style={{float:"right"}}
+            playlistId={data.playlistId}
+            onClick={this.deletePlaylist.bind(this)}
+            >Delete</button>
             <button 
             className="btn btn-primary btn-sm" 
             style={{float:"right"}} 
