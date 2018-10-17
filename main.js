@@ -1,12 +1,14 @@
 const {app, BrowserWindow} = require('electron')
+const url = require('url')
+const path = require('path')
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1480, height: 720,resizable:false,frame:false})
-  mainWindow.setMenu(null)
+  // mainWindow.setMenu(null)
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000')
+  mainWindow.loadURL("http://localhost:3000")
 
 
   // Emitted when the window is closed.
