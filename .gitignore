@@ -8,7 +8,9 @@
 
 # production
 /build
-
+/dist
+/url.txt
+/src/Components/key.js
 # misc
 .DS_Store
 .env.local
