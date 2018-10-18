@@ -11,6 +11,9 @@
 /dist
 /url.txt
 /src/Components/key.js
+/Main.code-workspace
+
+
 # misc
 .DS_Store
 .env.local
