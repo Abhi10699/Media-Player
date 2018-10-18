@@ -74,7 +74,7 @@ export default class QuickAccess extends Component{
     return(
       <div>
         <nav class="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Your Playlists</a>
+          <a class="navbar-brand" href="#">Plalist Library</a>
           <button className="btn" style={{backgroundColor:"black"}} data-toggle="modal" data-target="#exampleModal"><span className="fa fa-plus fa-lg mt-2" style={{color:"white"}}></span></button>
         </nav>
         <Modal id="exampleModal" newPlaylistLoaded = {this.checkStorage.bind(this)}/>
